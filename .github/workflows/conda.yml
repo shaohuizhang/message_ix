@@ -1,0 +1,46 @@
+# Verify that installation from conda-forge works as intended
+
+name: conda
+
+on:
+  push:
+    branches: [conda-check]
+  # schedule:
+  # - cron: "*/30 * * * *"
+
+jobs:
+  conda:
+    runs-on: windows-latest
+
+    steps:
+    - name: Cache conda packages
+      # To reduce download/run time
+      uses: actions/cache@v2
+      with:
+        path: |
+          gams
+          $CONDA/pkgs
+          $HOME/.conda/pkgs
+          $HOME/appdata/local/conda/conda/pkgs
+        key: windows-latest
+
+    - name: Add pre-installed build runner Miniconda to PATH
+      shell: bash
+      run: echo "::add-path::$CONDA/Scripts"
+
+    - name: Install message-ix and configure shell
+      run: |
+        conda install --channel conda-forge --quiet message-ix
+        conda init powershell
+
+    - name: Check
+      run: |
+        conda activate
+
+        conda info
+
+        conda list
+
+        message-ix show-versions
+
+        python -c "import ixmp; mp = ixmp.Platform()"
