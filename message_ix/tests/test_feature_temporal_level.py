@@ -51,11 +51,7 @@ def check_solution(scen: Scenario) -> None:
 
 # Dictionary of technology input/output
 TD_0 = {
-    "gas_ppl": {
-        "time_origin": [],
-        "time": ["summer"],
-        "time_dest": ["summer"],
-    },
+    "gas_ppl": {"time_origin": [], "time": ["summer"], "time_dest": ["summer"],},
     "gas_supply": {"time_origin": [], "time": ["year"], "time_dest": ["year"]},
 }
 
@@ -225,11 +221,7 @@ def test_linked_three_temporal_levels(request):
     "month" is defined under "season", and "season" is linked to "year". Model solves.
     """
     scen = make_subannual(
-        request,
-        TD_2,
-        time_steps=TS_1,
-        demand={"Jan": 1, "Feb": 1},
-        com_dict=COM_DICT,
+        request, TD_2, time_steps=TS_1, demand={"Jan": 1, "Feb": 1}, com_dict=COM_DICT,
     )
     check_solution(scen)
 
@@ -275,11 +267,7 @@ def test_linked_three_temporal_levels_month_to_year(request):
     """
 
     scen = make_subannual(
-        request,
-        TD_3,
-        time_steps=TS_1,
-        demand={"year": 2},
-        com_dict=COM_DICT,
+        request, TD_3, time_steps=TS_1, demand={"year": 2}, com_dict=COM_DICT,
     )
     check_solution(scen)
 
@@ -303,11 +291,7 @@ def test_linked_three_temporal_levels_season_to_year(request):
         },
     }
     scen = make_subannual(
-        request,
-        tec_dict,
-        time_steps=TS_1,
-        demand={"year": 2},
-        com_dict=COM_DICT,
+        request, tec_dict, time_steps=TS_1, demand={"year": 2}, com_dict=COM_DICT,
     )
     check_solution(scen)
 
@@ -324,19 +308,11 @@ def test_linked_three_temporal_levels_time_act(request):
             "time": ["summer", "winter"],
             "time_dest": ["year", "year"],
         },
-        "gas_supply": {
-            "time_origin": [],
-            "time": ["year"],
-            "time_dest": ["year"],
-        },
+        "gas_supply": {"time_origin": [], "time": ["year"], "time_dest": ["year"],},
     }
 
     scen = make_subannual(
-        request,
-        tec_dict,
-        time_steps=TS_0,
-        demand={"year": 2},
-        com_dict=COM_DICT,
+        request, tec_dict, time_steps=TS_0, demand={"year": 2}, com_dict=COM_DICT,
     )
     check_solution(scen)
 
@@ -347,10 +323,6 @@ def test_linked_three_temporal_levels_different_duration(request):
     Model solves, linking "month" through "season" to "year".
     """
     scen = make_subannual(
-        request,
-        TD_3,
-        time_steps=TS_1,
-        demand={"year": 2},
-        com_dict=COM_DICT,
+        request, TD_3, time_steps=TS_1, demand={"year": 2}, com_dict=COM_DICT,
     )
     check_solution(scen)
