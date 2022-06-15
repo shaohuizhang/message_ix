@@ -189,7 +189,7 @@ def make_austria(mp, solve=False, quiet=True):  # noqa: C901
 
     gdp_profile = np.array([1.0, 1.21631, 1.4108, 1.63746])
     beta = 0.7
-    demand_profile = gdp_profile ** beta
+    demand_profile = gdp_profile**beta
 
     # From IEA statistics, in GW·h, converted to GW·a
     base_annual_demand = dict(other_electricity=55209.0 / 8760, light=6134.0 / 8760)
@@ -398,7 +398,12 @@ def make_dantzig(
         columns=["mode", "node_loc", "node_origin", "technology"],
     )
     par["input"] = make_df(
-        "input", **input, **common, level="supply", value=1, unit="case",
+        "input",
+        **input,
+        **common,
+        level="supply",
+        value=1,
+        unit="case",
     )
 
     output = pd.DataFrame(
@@ -613,7 +618,10 @@ def make_westeros(
         scen.add_par(
             name,
             make_df(
-                name, **common, technology=tec, value=value / capacity_factor[tec] / 10,
+                name,
+                **common,
+                technology=tec,
+                value=value / capacity_factor[tec] / 10,
             ),
         )
 
