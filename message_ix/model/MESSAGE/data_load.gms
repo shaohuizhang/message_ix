@@ -81,6 +81,8 @@ fixed_extraction, fixed_stock, fixed_new_capacity, fixed_capacity, fixed_activit
 storage_initial, storage_self_discharge, time_order
 ;
 
+type_tec_share(type_tec) $ (SUM((shares, node_share, node, mode, commodity, level), map_shares_commodity_share(shares,node_share,node,type_tec,mode,commodity,level))) = YES ;
+type_tec_total(type_tec) $ (SUM((shares, node_share, node, mode, commodity, level), map_shares_commodity_total(shares,node_share,node,type_tec,mode,commodity,level))) = YES ;
 
 *----------------------------------------------------------------------------------------------------------------------*
 * ensure that each node is mapped to itself                                                                            *

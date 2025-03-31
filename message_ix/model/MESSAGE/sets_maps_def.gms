@@ -310,8 +310,10 @@ Sets
     time_relative(time)                     flag for treating unit of ACT in sub-annual time slices relative to parent 'time' (activating parameter 'duration_time_rel')
 ;
 
-Alias(type_tec,type_tec_share);
-Alias(type_tec,type_tec_total);
+*Alias(type_tec,type_tec_share);
+*Alias(type_tec,type_tec_total);
+Sets type_tec_share(type_tec)
+     type_tec_total(type_tec) ;
 
 *----------------------------------------------------------------------------------------------------------------------*
 * Mapping sets                                                                                                         *
