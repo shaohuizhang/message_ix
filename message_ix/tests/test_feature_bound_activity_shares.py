@@ -289,12 +289,19 @@ def test_commodity_share_up(test_mp, request, testrun_uid):
 
     # add emissions factor and check the emissions equivalence function
     clone4 = clone.clone(
-        scenario=f"{scen.scenario}-{testrun_uid} share_and_emiss", keep_solution=False
+        scenario=f"{scen.scenario}-{testrun_uid} share_and_emiss",
+        keep_solution=False,
     )
     with clone4.transact("Add emission factor"):
         clone4.add_set("emission", "emiss")
         clone4.add_cat("emission", "emiss_type", "emiss")
-        tec_specs = ["seattle", "canning_plant", _year, _year, "production"]
+        tec_specs = [
+            "seattle",
+            "canning_plant",
+            _year,
+            _year,
+            "production",
+        ]
         dict_em_factor = {"canning_plant": 1.5}
         clone4.add_par(
             "emission_factor",
