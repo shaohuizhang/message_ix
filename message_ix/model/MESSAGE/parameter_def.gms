@@ -498,6 +498,7 @@ Parameters
 
 ***
 * .. _section_parameter_historical:
+* .. _historical_new_capacity:
 *
 * Historical capacity and activity values
 * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -520,7 +521,6 @@ Parameters
 *      - ``node_loc`` | ``tec`` | ``year_vtg``
 *    * - historical_activity [#hist]_
 *      - ``node_loc`` | ``tec`` | ``year_act`` | ``mode`` | ``time``
-*
 *
 * The activity in the historic period can be defined with
 *

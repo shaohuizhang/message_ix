@@ -1,8 +1,13 @@
-.. Next release
-.. ============
+Next release
+============
 
-.. All changes
-.. -----------
+All changes
+-----------
+
+- Bug fix for construction of |map_tec_lifetime| (:pull:`924`, :issue:`923`).
+  Previously, entries in |historical_new_capacity| did not correctly result in historical technology vintages that could be active in periods within the model horizon.
+  The fix removes the need to use certain work-arounds for the bug; see the issue for details.
+  Add documentation for this set.
 
 .. _v3.10.0:
 
